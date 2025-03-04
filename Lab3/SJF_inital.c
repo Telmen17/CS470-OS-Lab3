@@ -126,7 +126,11 @@ int main() {
                      };
     n = sizeof(proc) / sizeof(proc[0]);
 
+    //Title
+    printf("\n###SJF Simulation\n");
+    // Simulating algorithm
     srtf(proc);
+    // Printing the Process Results
     printProcesses(proc);
 
     //Printing completion order
