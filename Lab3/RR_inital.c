@@ -94,6 +94,12 @@ void calculateWaitingTimeAndExecutionOrder(Process proc[], int n, int quantum) {
 
         // If all processes are done
         if (done == 1) break;
+
+        // Infinite loop error handling
+        if (exeIdx >= 1000) {
+            perror("Loop iteration exceeded... Infinite loop!");
+            exit(EXIT_FAILURE);
+        }
     }
 
     // Print the execution order

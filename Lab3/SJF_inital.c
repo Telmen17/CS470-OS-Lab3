@@ -44,6 +44,9 @@ void srtf(Process proc[]) {
     int totalWaitingTime = 0;
     int totalTurnaroundTime = 0;
 
+    // Infinite Loop limit
+    int limitCount = 0;
+
     // Build the loop to execute processes in the queue list
     while (completed != n) {
         // Check for process arrival
@@ -99,6 +102,15 @@ void srtf(Process proc[]) {
                 // Update individual waiting time
                 proc[i].waiting_time++;
             }
+        }
+
+        // Incrementing loop iteration limit
+        limitCount++;
+        
+        // Infinite loop iteration check
+        if (limitCount >= 1000) {
+            perror("Loop iteration exceeded... Infinite loop!");
+            exit(EXIT_FAILURE);
         }
     }
 
